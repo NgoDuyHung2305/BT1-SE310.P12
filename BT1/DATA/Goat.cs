@@ -8,7 +8,15 @@ namespace BT1.DATA
 {
     public class Goat:Animal
     {
-        public Goat() { Name = "Goat"; Sound = "Beeee"; }
+        public Goat(int Number) 
+        {
+            Name = "Goat"; Sound = "Beeee";Number = Number;
+            Random random = new Random();
+            Milk = Number * random.Next(0, 10);
+            Child = Number * random.Next(0, 5);
+        }
+        public Goat() { Name = "Cow"; Sound = "Beeee"; }
+
         public override string Getsound()
         {
             return Sound;
@@ -16,13 +24,13 @@ namespace BT1.DATA
         public override int GetMilk()
         {
             Random random = new Random();
-            Milk = random.Next(0, 10);
+            Milk = Number * random.Next(0, 10);
             return Milk;
         }
         public override int GetChild()
         {
             Random random = new Random();
-            Child = random.Next(0, 5);
+            Child = Number * random.Next(0, 5);
             return Child;
         }
     }
